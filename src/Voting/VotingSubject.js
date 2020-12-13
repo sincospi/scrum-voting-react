@@ -10,7 +10,7 @@ const StyledSubject = styled.div`
   border-radius: 20px;
   background: linear-gradient(
     90deg,
-    rgba(174, 244, 190, 1) 0%,
+    rgba(174, 244, 190, 1) ${(props) => props.percentVoted}%,
     rgba(0, 212, 255, 1) 100%
   );
 
@@ -42,6 +42,17 @@ export default function VotingSubject({ className, appState, socket }) {
     setEditing(true);
   }
 
+  let percentVoted = 0;
+  if (appState?.connectedUsers) {
+    const allUserCount = appState.connectedUsers.length;
+    const votedUserCount = appState.connectedUsers.filter((u) => !!u.vote)
+      .length;
+    if (allUserCount) {
+      percentVoted = Math.round((votedUserCount / allUserCount) * 100);
+    }
+    console.debug({ votedUserCount, allUserCount, percentVoted });
+  }
+
   return editing ? (
     <TextField
       id="voting-subject"
@@ -55,7 +66,11 @@ export default function VotingSubject({ className, appState, socket }) {
       onBlur={handleBlur}
     />
   ) : (
-    <StyledSubject className={className} onClick={startEditing}>
+    <StyledSubject
+      className={className}
+      onClick={startEditing}
+      percentVoted={percentVoted}
+    >
       {appState.title || "Click here to set what we are voting on!"}
     </StyledSubject>
   );
