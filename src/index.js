@@ -10,3 +10,7 @@ ReactDOM.render(
   </React.StrictMode>,
   rootElement
 );
+
+console.debug("Environment variables", {
+  ...process.env,
+});

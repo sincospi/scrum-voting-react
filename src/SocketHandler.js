@@ -3,9 +3,11 @@ import { io } from "socket.io-client";
 
 export default function SocketHandler({ children, setSocket, setAppState }) {
   useEffect(() => {
+    const serverURI = process.env.REACT_APP_SERVER_URI;
+    console.log(`Connecting to "${process.env.NODE_ENV}" server`, serverURI);
     console.debug("-------- App useEffect ----------- !!!");
 
-    const new_socket = io(process.env.REACT_APP_SERVER_URI, {
+    const new_socket = io(serverURI, {
       transports: ["websocket"],
     });
 
