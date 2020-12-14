@@ -28,9 +28,10 @@ export default function Footer() {
       />
       <div>
         Source Code:
-        <a href="https://codesandbox.io/s/scrum-voting-nodejs-5jbgh">BackEnd</a>
-        ,{" "}
-        <a href="https://codesandbox.io/s/scrum-voting-react-yenzw">FrontEnd</a>
+        <a href="https://github.com/sincospi/scrum-voting-nodejs">
+          BackEnd
+        </a>,{" "}
+        <a href="https://github.com/sincospi/scrum-voting-react">FrontEnd</a>
       </div>
     </StyledFooter>
   );
