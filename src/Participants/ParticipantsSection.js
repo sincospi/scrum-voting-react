@@ -75,7 +75,11 @@ export default function ParticipantsSection({ appState, socket }) {
       />
       <VotedListHeader className="voted-header">
         <div>Voted</div>
-        <ButtonReveal socket={socket} />
+        <ButtonReveal
+          socket={socket}
+          revealVotes={appState?.revealVotes}
+          voteCount={appState?.connectedUsers.filter((u) => u.vote).length}
+        />
       </VotedListHeader>
       <VotedList className="voted-list" appState={appState} socket={socket} />
     </StyledSection>

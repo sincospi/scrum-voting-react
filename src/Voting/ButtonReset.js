@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
 
-export default function ButtonReset({ socket, setVote }) {
+export default function ButtonReset({ socket, setVote, revealVotes }) {
   function onClick() {
     // if (confirm("Are you sure?")) {
     console.debug("Reset clicked!");
@@ -17,6 +17,7 @@ export default function ButtonReset({ socket, setVote }) {
       variant="contained"
       color="secondary"
       onClick={onClick}
+      disabled={!revealVotes}
     >
       Reset
     </Button>

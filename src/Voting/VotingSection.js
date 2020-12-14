@@ -37,7 +37,11 @@ const VotingSection = styled.section`
 export default function Voting({ appState, socket, vote, setVote }) {
   return (
     <VotingSection>
-      <ButtonReset socket={socket} setVote={setVote} />
+      <ButtonReset
+        socket={socket}
+        setVote={setVote}
+        revealVotes={appState?.revealVotes}
+      />
       <VotingSubject
         className="voting-subject"
         appState={appState}
