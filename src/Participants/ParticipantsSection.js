@@ -55,7 +55,6 @@ const StyledSection = styled.section`
 `;
 
 const ListHeader = styled.div`
-  background-color: rgba(212, 221, 228, 0.3);
   padding: 5px;
   border-bottom: 1px solid rgba(212, 221, 228, 1);
 `;
