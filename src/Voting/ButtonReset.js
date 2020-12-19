@@ -5,7 +5,7 @@ export default function ButtonReset({ socket, setVote, revealVotes }) {
   function onClick() {
     // if (confirm("Are you sure?")) {
     console.debug("Reset clicked!");
-    window.localStorage.removeItem("vote");
+    window.sessionStorage.removeItem("vote");
     socket.emit("reset", { reset: true });
     setVote("");
     // }

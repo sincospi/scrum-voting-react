@@ -27,10 +27,8 @@ export default function Footer() {
         alt="Voting Banner: My Vote Counts"
       />
       <div>
-        Source Code:
-        <a href="https://github.com/sincospi/scrum-voting-nodejs">
-          BackEnd
-        </a>,{" "}
+        Source Code:{" "}
+        <a href="https://github.com/sincospi/scrum-voting-nodejs">BackEnd</a>,{" "}
         <a href="https://github.com/sincospi/scrum-voting-react">FrontEnd</a>
       </div>
     </StyledFooter>

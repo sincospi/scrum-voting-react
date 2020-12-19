@@ -7,7 +7,7 @@ const NameField = styled.input`
 `;
 
 export default function NameForm({ appState, socket, className }) {
-  const [name, setName] = useState(window.localStorage.getItem("name") || "");
+  const [name, setName] = useState(window.sessionStorage.getItem("name") || "");
   console.debug("NameForm re-render", name);
   console.debug(
     "Name (from server)",
@@ -21,7 +21,7 @@ export default function NameForm({ appState, socket, className }) {
 
   function handleBlur() {
     console.debug("New name", name);
-    window.localStorage.setItem("name", name);
+    window.sessionStorage.setItem("name", name);
     socket.emit("setName", { name });
   }
 

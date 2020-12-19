@@ -56,6 +56,7 @@ export default function VotingSubject({ className, appState, socket }) {
   return editing ? (
     <TextField
       id="voting-subject"
+      autoFocus
       className={className}
       label="Vote Subject"
       multiline
