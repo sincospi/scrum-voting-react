@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./styles.css";
+import GlobalStyle from "./GlobalStyle";
 import SocketHandler from "./SocketHandler";
 import Page from "./Page";
 
@@ -10,23 +10,15 @@ function App() {
     revealVotes: false,
     title: "",
   });
-  const [socket, setSocket] = useState(null);
-  const [vote, setVote] = useState(window.localStorage.getItem("vote") || "");
+  const [socket, setSocket] = useState({ connected: false });
+  const [vote, setVote] = useState(window.sessionStorage.getItem("vote") || "");
 
   console.debug("APP Re-render");
 
   return (
     <SocketHandler setSocket={setSocket} setAppState={setAppState}>
-      {socket ? (
-        <Page
-          appState={appState}
-          socket={socket}
-          vote={vote}
-          setVote={setVote}
-        />
-      ) : (
-        <p>Waiting for socket to connect...</p>
-      )}
+      <GlobalStyle />
+      <Page appState={appState} socket={socket} vote={vote} setVote={setVote} />
     </SocketHandler>
   );
 }
