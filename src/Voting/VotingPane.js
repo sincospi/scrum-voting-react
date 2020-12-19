@@ -70,7 +70,7 @@ export default function VotingPane({ appState, socket, vote, setVote }) {
   }
 
   function saveVote(newVote) {
-    window.sessionStorage.setItem("vote", newVote);
+    window.localStorage.setItem("vote", newVote);
     socket.emit("setVote", { vote: newVote });
   }
 

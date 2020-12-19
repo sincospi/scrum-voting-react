@@ -20,8 +20,8 @@ export default function SocketHandler({ children, setSocket, setAppState }) {
     new_socket.on("connect", () => {
       setSocket(new_socket);
       console.debug("socket.connected", new_socket.connected);
-      const existing_name = window.sessionStorage.getItem("name");
-      const existing_vote = window.sessionStorage.getItem("vote");
+      const existing_name = window.localStorage.getItem("name");
+      const existing_vote = window.localStorage.getItem("vote");
       if (existing_name || existing_vote) {
         new_socket.emit("initUser", {
           name: existing_name,

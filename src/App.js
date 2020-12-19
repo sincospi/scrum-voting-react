@@ -11,7 +11,7 @@ function App() {
     title: "",
   });
   const [socket, setSocket] = useState(disconnectedSocket);
-  const [vote, setVote] = useState(window.sessionStorage.getItem("vote") || "");
+  const [vote, setVote] = useState(window.localStorage.getItem("vote") || "");
 
   console.debug("APP Re-render");
 
