@@ -16,17 +16,16 @@ const StyledLi = applyNameScoreGrid(styled.li`
 `);
 
 const Name = styled.span``;
-const Vote = styled.b``;
+const Vote = styled.b`
+  font-size: ${({ vote }) => (vote.toString().length <= 3 ? "1em" : "0.5em")};
+`;
 
 export default function UserVoted({ className, user, revealVote }) {
-  let vote = "***";
-  if (revealVote) {
-    vote = user.vote === "?" ? "¯\\_(ツ)_/¯" : user.vote;
-  }
+  const vote = revealVote ? user.vote : "***";
   return (
     <StyledLi className={className}>
       <Name>{user.name || user.id}</Name>
-      <Vote>{vote}</Vote>
+      <Vote vote={vote}>{vote}</Vote>
     </StyledLi>
   );
 }
