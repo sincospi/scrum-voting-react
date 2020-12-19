@@ -13,8 +13,7 @@ export default function SocketHandler({ children, setSocket, setAppState }) {
 
     new_socket.on("connect", () => {
       setSocket(new_socket);
-      console.log("socket.status", new_socket.connected);
-      console.log(new_socket);
+      console.debug("socket.connected", new_socket.connected);
       const existing_name = window.sessionStorage.getItem("name");
       const existing_vote = window.sessionStorage.getItem("vote");
       if (existing_name || existing_vote) {

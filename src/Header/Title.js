@@ -4,6 +4,8 @@ import styled from "styled-components";
 const StyledTitle = styled.div`
   text-align: center;
   padding: 20px 0;
+  color: #3f51b5;
+  font-weight: bold;
   & > span:nth-child(1) {
     font-size: 30px;
   }

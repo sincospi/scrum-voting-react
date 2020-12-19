@@ -16,10 +16,17 @@ function App() {
   console.debug("APP Re-render");
 
   return (
-    <SocketHandler setSocket={setSocket} setAppState={setAppState}>
+    <>
       <GlobalStyle />
-      <Page appState={appState} socket={socket} vote={vote} setVote={setVote} />
-    </SocketHandler>
+      <SocketHandler setSocket={setSocket} setAppState={setAppState}>
+        <Page
+          appState={appState}
+          socket={socket}
+          vote={vote}
+          setVote={setVote}
+        />
+      </SocketHandler>
+    </>
   );
 }
 

@@ -6,6 +6,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    color: #3e3e3e;
   }
 `;
 
