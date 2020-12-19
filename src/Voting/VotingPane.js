@@ -13,6 +13,9 @@ const StyledButtonGroup = styled(ButtonGroup)`
 
 const VoteInput = styled.input`
   padding: 6px;
+  color: ${({ isValueHidden }) => (isValueHidden ? "#fff" : "auto")};
+  -webkit-text-security: ${({ isValueHidden }) =>
+    isValueHidden ? "disc" : "auto"}; ;
 `;
 
 const VoteLayout = styled.div`
@@ -119,12 +122,15 @@ export default function VotingPane({ appState, socket, vote, setVote }) {
       </StyledButtonGroup>
       <div id="vote-input-form">
         <VoteInput
-          style={isHidden ? { color: "#fff" } : {}}
+          placeholder="Not voted"
+          autocomplete="off"
+          isValueHidden={isHidden}
           type="text"
           value={vote}
           onChange={handleChange}
           onBlur={() => saveVote(vote)}
         />
+        &nbsp; &nbsp;
         <FormControlLabel control={checkBox} label="Hide" />
       </div>
     </VoteLayout>
