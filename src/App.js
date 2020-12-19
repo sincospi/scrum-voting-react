@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import GlobalStyle from "./GlobalStyle";
-import SocketHandler from "./SocketHandler";
+import SocketHandler, { disconnectedSocket } from "./SocketHandler";
 import Page from "./Page";
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
     revealVotes: false,
     title: "",
   });
-  const [socket, setSocket] = useState({ connected: false });
+  const [socket, setSocket] = useState(disconnectedSocket);
   const [vote, setVote] = useState(window.sessionStorage.getItem("vote") || "");
 
   console.debug("APP Re-render");

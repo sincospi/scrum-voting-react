@@ -1,6 +1,12 @@
 import { useEffect } from "react";
 import { io } from "socket.io-client";
 
+export const disconnectedSocket = {
+  connected: false,
+  emit: (name, payload) =>
+    console.log("Cannot emit because you are not connected", name, payload),
+};
+
 export default function SocketHandler({ children, setSocket, setAppState }) {
   useEffect(() => {
     const serverURI = process.env.REACT_APP_SERVER_URI;
@@ -25,7 +31,7 @@ export default function SocketHandler({ children, setSocket, setAppState }) {
     });
 
     new_socket.on("disconnect", () => {
-      setSocket({ connected: false });
+      setSocket(disconnectedSocket);
     });
 
     new_socket.on("FromAPI", (data) => {
