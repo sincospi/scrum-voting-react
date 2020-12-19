@@ -9,7 +9,10 @@ const StyledTimestamp = styled.div`
 export default function Timestamp({ className, timestamp }) {
   return (
     <StyledTimestamp className={className}>
-      Sync: <time>{(timestamp || "").substring(11, 23)}</time>
+      Sync:{" "}
+      <time>
+        {timestamp ? new Date(Date.parse(timestamp)).toLocaleString() : "-"}
+      </time>
     </StyledTimestamp>
   );
 }
