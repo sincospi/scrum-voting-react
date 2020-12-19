@@ -19,7 +19,7 @@ export default function Title({ className }) {
     <StyledTitle className={className}>
       <span>&lt;ScrumVoting /&gt;</span>
       <br />
-      <span>Your VOTE counts!</span>
+      <i>Your VOTE counts!</i>
     </StyledTitle>
   );
 }

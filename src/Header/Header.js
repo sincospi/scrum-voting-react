@@ -25,9 +25,10 @@ const StyledHeader = styled.section`
   ${mediaDevices.mobile} {
     grid-template-columns: 1fr;
     grid-template-areas:
-      "time"
       "title"
+      "time"
       "name";
+    text-align: center;
   }
 
   & > .timestamp {
